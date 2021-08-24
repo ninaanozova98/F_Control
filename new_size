@@ -1,0 +1,51 @@
+ $("body").on("click", "span.new_size", function (event)
+    {
+        var prop = $(this).attr("data-prop");
+        if (siteIblock == 44)
+        {
+            $(this)
+                .parents("td")
+                .find(".ok_new_size")
+                .removeClass("hidden");
+            $(this)
+                .parents("td")
+                .find("div.wrap_prew_text")
+                .addClass("hidden");
+            $(this)
+                .parents("td")
+                .find(".slider-group")
+                .addClass("slider-group-height");
+            $(this)
+                .removeClass("form-control")
+                .html(
+                    "<input type='text' class='add_val' data-prop='" +
+                    prop +
+                    "' value=''>"
+                );
+
+            var input = $(this)
+                .find("input.add_val")
+                .focus();
+
+            $(this)
+                .parents("td")
+                .find(".slider-group")
+                .html("");
+            slider_new_size(input);
+        } else
+        {
+            // $(this).removeClass('form-control').attr('data-prop', 'ALL_SIZE').html("<input type='text' class='add_val' data-prop='ALL_SIZE' value=''>");
+
+            $(this)
+                .removeClass("form-control")
+                .html(
+                    "<input type='text' class='add_val' data-prop='" +
+                    prop +
+                    "' value=''>"
+                );
+            $(this)
+                .parents("td")
+                .find(".edit_size a")
+                .click();
+        }
+    });
